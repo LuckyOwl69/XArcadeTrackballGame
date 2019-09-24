@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject Ball;
-    public float xOffset = 5, yOffset = 5, zOffset;
+    public float xOffset = 0, yOffset = 5, zOffset = -5;
 
     void Update()
     {
