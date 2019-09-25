@@ -64,6 +64,8 @@
   <ItemGroup>
     <Compile Include="Assets\BallController.cs" />
     <Compile Include="Assets\CameraController.cs" />
+    <Compile Include="Assets\DoorController.cs" />
+    <Compile Include="Assets\JumpPad.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Bigger Uni stuff/Trimester 3/RGP204/Assignment 1/Draft 1/Assignment 1/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
