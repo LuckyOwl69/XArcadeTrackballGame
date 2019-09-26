@@ -131,9 +131,9 @@ GameObject:
   - component: {fileID: 257412290}
   - component: {fileID: 257412289}
   - component: {fileID: 257412288}
+  - component: {fileID: 257412291}
   - component: {fileID: 257412287}
   - component: {fileID: 257412286}
-  - component: {fileID: 257412291}
   m_Layer: 8
   m_Name: Ball
   m_TagString: Player
@@ -224,7 +224,7 @@ Transform:
   m_GameObject: {fileID: 257412285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -23.65, y: 2.14, z: -81.6}
-  m_LocalScale: {x: 2.472, y: 2.472, z: 2.472}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -243,13 +243,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballSpeed: 30
   jumpForce: 10
-  groundLayers:
+  ground:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   allLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   sphereCollider: {fileID: 257412287}
+  jumpCount: 0
+  checkGround: 1
+  holdTime: 0
 --- !u!1 &267003643
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,9 +356,9 @@ GameObject:
   - component: {fileID: 300983230}
   - component: {fileID: 300983229}
   - component: {fileID: 300983228}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,9 +447,9 @@ GameObject:
   - component: {fileID: 402187909}
   - component: {fileID: 402187908}
   - component: {fileID: 402187907}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (8)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -640,9 +643,9 @@ GameObject:
   - component: {fileID: 470769758}
   - component: {fileID: 470769757}
   - component: {fileID: 470769756}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (15)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -950,9 +953,9 @@ GameObject:
   - component: {fileID: 695180488}
   - component: {fileID: 695180487}
   - component: {fileID: 695180486}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (13)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1355,9 +1358,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 965655844}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: maze
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1400,9 +1403,9 @@ GameObject:
   - component: {fileID: 991044928}
   - component: {fileID: 991044927}
   - component: {fileID: 991044926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (14)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1491,9 +1494,9 @@ GameObject:
   - component: {fileID: 1099502374}
   - component: {fileID: 1099502373}
   - component: {fileID: 1099502372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (9)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1582,9 +1585,9 @@ GameObject:
   - component: {fileID: 1178617856}
   - component: {fileID: 1178617855}
   - component: {fileID: 1178617854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1673,9 +1676,9 @@ GameObject:
   - component: {fileID: 1355032633}
   - component: {fileID: 1355032632}
   - component: {fileID: 1355032631}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (11)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1765,9 +1768,9 @@ GameObject:
   - component: {fileID: 1358837280}
   - component: {fileID: 1358837279}
   - component: {fileID: 1358837278}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: JumpPad (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1869,9 +1872,9 @@ GameObject:
   - component: {fileID: 1656589075}
   - component: {fileID: 1656589074}
   - component: {fileID: 1656589073}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (12)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2704,7 +2707,7 @@ GameObject:
   - component: {fileID: 1967769497}
   - component: {fileID: 1967769496}
   - component: {fileID: 1967769495}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ball (1)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2739,13 +2742,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballSpeed: 30
   jumpForce: 10
-  groundLayers:
+  ground:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   allLayers:
     serializedVersion: 2
     m_Bits: 4294967295
   sphereCollider: {fileID: 1967769497}
+  jumpCount: 0
+  checkGround: 1
+  holdTime: 0
 --- !u!54 &1967769496
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2832,9 +2838,9 @@ GameObject:
   - component: {fileID: 1976505382}
   - component: {fileID: 1976505381}
   - component: {fileID: 1976505380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube (10)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
