@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BallController.cs" />
+    <Compile Include="Assets\BreakableWall.cs" />
     <Compile Include="Assets\CameraController.cs" />
     <Compile Include="Assets\DoorController.cs" />
     <Compile Include="Assets\JumpPad.cs" />
