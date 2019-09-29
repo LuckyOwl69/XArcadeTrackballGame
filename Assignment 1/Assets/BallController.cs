@@ -6,7 +6,12 @@ public class BallController : MonoBehaviour
 {
     public float ballSpeed;
 
+    public Vector3 currentBallVelocity;
+
     public float jumpForce;
+
+    public float xAxisSpeed;
+    public float yAxisSpeed;
 
     private Rigidbody body;
 
@@ -23,10 +28,11 @@ public class BallController : MonoBehaviour
 
     private bool canJump = true;
 
-    void Start()
+    public void Start()
     {
         body = GetComponent<Rigidbody>();
         sphereCollider = GetComponent<SphereCollider>();
+
     }
 
     bool GroundCheck()
@@ -49,19 +55,32 @@ public class BallController : MonoBehaviour
     }
     void Update()
         {
-        
+        currentBallVelocity = body.velocity;
+
+
         //locks cursor to the game window
         Cursor.lockState = CursorLockMode.Locked;
 
-        //receiving mouse inputs
-        float xAxisSpeed = Input.GetAxis("Mouse X");
-        float yAxisSpeed = Input.GetAxis("Mouse Y");
+        if (checkGround)
+        {
+            //receiving mouse inputs
+            xAxisSpeed = Input.GetAxis("Mouse X");
+            yAxisSpeed = Input.GetAxis("Mouse Y");
 
-        //moving using the mouse
-        Vector3 movement = new Vector3(xAxisSpeed, 0, yAxisSpeed);
+            //moving using the mouse
+            Vector3 movement = new Vector3(xAxisSpeed, 0, yAxisSpeed);
 
-        //applying force on the ball in a direction
-        body.AddForce(movement * ballSpeed);
+            //applying force on the ball in a direction
+            body.AddForce(movement * ballSpeed);
+
+            //move fast function, middle mouse button
+            if (Input.GetKey(KeyCode.Mouse2))
+            {
+                body.AddForce(movement * (ballSpeed + 100));
+            }
+        }
+
+        
 
 
 
@@ -91,10 +110,6 @@ public class BallController : MonoBehaviour
             body.AddForce(Vector3.down * 10 * jumpForce, ForceMode.Impulse);
         }
 
-        //move fast function, middle mouse button
-        if (Input.GetKey(KeyCode.Mouse2))
-        {
-            body.AddForce(movement * (ballSpeed + 100));
-        }
+        
     }
 }

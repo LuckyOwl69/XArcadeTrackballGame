@@ -14,6 +14,8 @@ public class BreakableWall : MonoBehaviour
     public float explosionRadius = 4f;
     public float explosionUpward = 0.4f;
 
+    public BallController getBallSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,9 @@ public class BreakableWall : MonoBehaviour
         cubesPivotDistance = cubeSize * cubesInRow / 2;
         //use this value to create pivot vector)
         cubesPivot = new Vector3(cubesPivotDistance, cubesPivotDistance, cubesPivotDistance);
+
+        GameObject ball = GameObject.Find("Ball");
+
     }
 
     // Update is called once per frame
@@ -36,6 +41,17 @@ public class BreakableWall : MonoBehaviour
             explode();
         }
     }
+
+    ////The following function was my attempt to make the walls break when the players speed reached a certain magnitude but it doesnt work :( 
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    getBallSpeed = GetComponent<BallController>();
+
+    //    if (other.gameObject.name == "Ball" && getBallSpeed.currentBallVelocity.magnitude > 1)
+    //    {
+    //        explode();
+    //    }
+    //}
 
     public void explode()
     {
